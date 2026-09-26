@@ -11,8 +11,8 @@ from src.sel import *
 @pytest.fixture(scope='module')
 def start():
     options=Options()
-    # options.add_argument('--headless')
-    # options.add_argument("--window-size=1920,1080")
+    options.add_argument('--headless')
+    options.add_argument("--window-size=1920,1080")
     driver=webdriver.Chrome(options=options)
     driver.set_page_load_timeout(5)
     try:
