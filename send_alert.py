@@ -4,7 +4,7 @@ import os
 import requests
 
 TOKEN = "8865069128:AAHuiH8-R_qBCRr1vfJL6TlrgrO6lr05cUs"
-CHAT_ID = "8328444589"
+CHAT_ID = "-1003843720000"
 
 # Гитхаб во время сборки сам автоматически знает номер текущего прогона (RUN_NUMBER)
 run_number = os.getenv("GITHUB_RUN_NUMBER", "1")
