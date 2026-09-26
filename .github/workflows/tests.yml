@@ -1,9 +1,16 @@
 
+
+
 name: Run UI Tests
 
 on:
   push:
     branches: [ main ]  # Робот будет просыпаться при каждом твоём git push!
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   run-tests:
@@ -30,4 +37,13 @@ jobs:
         pytest tests/unit/test_catalog_sorting.py --alluredir=allure-results
 
 
+    - name: 📊 Генерация Allure-отчёта
+      uses: simple-elf/allure-report-action@master
+      if: always()
+      with:
+            allure_results: allure-results
+            allure_report: allure-report
 
+    - name: 🚀 Деплой отчёта на GitHub Pages
+      uses: peaceiris/actions-deploy-pages@v4
+      if: always()
