@@ -19,7 +19,7 @@ message = f"""
 📊 **Смотреть Allure-отчёт:** [Кликни сюда]({report_url})
 """
 # Стучимся в официальные бэкенд-ворота Телеграма (API)
-url = f"https://telegram.org{TOKEN}/sendMessage"
+url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
 
 # Пуляем POST-запрос с JSON-телом, чтобы бот отправил сообщение в чат
 response = requests.post(url, json={
