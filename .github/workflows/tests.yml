@@ -1,0 +1,33 @@
+
+name: Run UI Tests
+
+on:
+  push:
+    branches: [ main ]  # Робот будет просыпаться при каждом твоём git push!
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest  # Запускаем чистый Linux в облаке GitHub
+
+    steps:
+    - name: Скачиваем код проекта из репозитория
+      uses: actions/checkout@v4
+
+    - name: Устанавливаем Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Устанавливаем стабильный Google Chrome
+      uses: browser-actions/setup-chrome@v1
+
+    - name: Устанавливаем библиотеки
+      run: |
+        pip install -r requirements.txt
+
+    - name: Запуск нашего теста каталога плитки
+      run: |
+        pytest tests/unit/test_catalog_sorting.py --alluredir=allure-results
+
+
+

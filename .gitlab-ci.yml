@@ -1,0 +1,12 @@
+
+
+
+stages:
+  - testing
+
+run_my_tests:
+  stage: testing
+  image: joyzoursae/python-selenium:latest
+  script:
+    - pip install -r requirements.txt
+    - pytest tests/unit/test_catalog_sorting.py --alluredir=allure-results

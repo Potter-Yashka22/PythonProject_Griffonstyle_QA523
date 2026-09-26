@@ -1,0 +1,4 @@
+ищу элемент a[href^="mailto:"]
+нашёл элемент a[href^="mailto:"]
+Текст почты на сайте: 'info@griffonstyle.ru'
+Значение атрибута href: 'mailto:info@griffonstyle.ru'

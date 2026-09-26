@@ -1,0 +1,59 @@
+Кликаю на иконку Login
+ищу элемент .site-head-login
+нашёл элемент .site-head-login
+Проверка на клик .site-head-login
+Кликнул на элемент .site-head-login
+Текущий URL сайта: https://griffonstyle.ru/login
+ищу элемент h1.main-login-title
+нашёл элемент h1.main-login-title
+Текст найденного заголовка: Авторизация
+ищу элемент a.btn-confirm
+нашёл элемент a.btn-confirm
+Проверка на клик a.btn-confirm
+Кликнул на элемент a.btn-confirm
+Текущий URL после клика на регистрацию: https://griffonstyle.ru/registration
+ищу элемент FirstName
+нашёл элемент FirstName
+Вписал текст в FirstName
+текст виден Рептилойд_Валера
+ищу элемент FirstName
+нашёл элемент FirstName
+Фактическое значение в поле Имя: Рептилойд_Валера
+ищу элемент LastName
+нашёл элемент LastName
+Вписал текст в LastName
+текст виден Эчпочмаков
+ищу элемент LastName
+нашёл элемент LastName
+Фактическое значение в поле Фамилия: Эчпочмаков
+ищу элемент Email
+нашёл элемент Email
+Вписал текст в Email
+текст виден aleksacomp@mail.ru
+ищу элемент Email
+нашёл элемент Email
+Фактическое значение в поле почта 'aleksacomp@mail.ru'
+ищу элемент Phone
+нашёл элемент Phone
+ищу элемент Phone
+нашёл элемент Phone
+Фактическое значение в поле Телефон: 89209205285
+ищу элемент Password
+нашёл элемент Password
+Вписал текст в Password
+текст виден testerQA523
+ищу элемент PasswordConfirm
+нашёл элемент PasswordConfirm
+Вписал текст в PasswordConfirm
+текст виден testerQA523
+ищу элемент Password
+нашёл элемент Password
+ищу элемент PasswordConfirm
+нашёл элемент PasswordConfirm
+ищу элемент CustomerFields_0__Value
+нашёл элемент CustomerFields_0__Value
+Проверка на select CustomerFields_0__Value
+Успешно выбрано значение Частный покупатель в элементе CustomerFields_0__Value
+ищу элемент CustomerFields_0__Value
+нашёл элемент CustomerFields_0__Value
+Фактическое значение в поле сфера деятельности: 'Частный покупатель'
