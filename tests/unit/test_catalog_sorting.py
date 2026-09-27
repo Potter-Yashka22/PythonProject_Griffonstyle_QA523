@@ -10,7 +10,7 @@ def test_catalog_sorting_dropdown(start):
     driver=start
     with allure.step("Переход на вкладку 'Плитка'"):
         toClick(driver,By.LINK_TEXT,"Плитка")
-        print("Переход на вкладку 'Плитка'")
+        print("Переход на вкладку 'Плитка' выполнен")
         time.sleep(1)
         actual_url=driver.current_url
         assert "/podbor-plitki" in actual_url
