@@ -3,9 +3,8 @@
 import os
 import requests
 
-TOKEN = "8865069128:AAE3aXWfuezNsiqfM3htHwq3Q9l7LZ9yr7E"
-CHAT_ID = "-1003843720000"
-
+TOKEN = os.getenv("TELEGRAM_TOKEN")
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
 run_number = os.getenv("GITHUB_RUN_NUMBER", "1")
 report_url = "https://github.com/Potter-Yashka22/PythonProject_Griffonstyle_QA523.git"
@@ -34,7 +33,7 @@ message = f"""
 📊 **Смотреть Allure-отчёт:** [Кликни сюда]({report_url})
 """
 
-url = f"https://telegram.org/bot{TOKEN}/sendMessage"
+url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
 
 
 response = requests.post(url, json={
