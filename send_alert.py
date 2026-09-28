@@ -16,17 +16,14 @@ test_status = os.getenv("GH_STAGE_STATUS", "failed")
 if test_status == "passed":
     emoji_header = "🚀 **Дримтим, пайплайн на GitHub завершён!**"
     status_text = "🟢 **Статус тестов:** УСПЕШНО / PASSED"
-    sound_alert = True
 
 elif test_status == "failed":
     emoji_header = "🚨🚨🚨 **ALARM!!! АТТЕНШН!!! ПОЛУНДРА!!!** 🚨🚨🚨"
     status_text = "🔴 **СТАТУС:** КРАШ! БАГ НА ПРОДЕ! КТО-ТО СЛОМАЛ СОРТИРОВКУ! 🌋"
-    sound_alert = False
 
 else:
     emoji_header = "🟡 Дримтим, что-то пошло не так в облаке..."
     status_text = "⚪ **Статус:** Неизвестен"
-    sound_alert = True
 
 # Сборка сообщения
 message = f"""
@@ -44,8 +41,7 @@ response = requests.post(url, json={
     "chat_id": CHAT_ID,
     "text": message,
     "parse_mode": "Markdown",
-    "disable_web_page_preview": True,
-    "disable_notification": sound_alert
+    "disable_web_page_preview": True
 })
 
 if response.status_code == 200:
