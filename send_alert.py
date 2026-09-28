@@ -4,7 +4,7 @@ import os
 import requests
 
 TOKEN = os.getenv("TELEGRAM_TOKEN")
-CHAT_ID = os.getenv("TELEGRAM_CHAT")
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
 run_number = os.getenv("GITHUB_RUN_NUMBER", "1")
 report_url = "https://github.com/Potter-Yashka22/PythonProject_Griffonstyle_QA523.git"
