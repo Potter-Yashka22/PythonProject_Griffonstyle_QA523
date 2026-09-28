@@ -3,7 +3,7 @@
 import os
 import requests
 
-TOKEN = "8865069128:AAHuiH8-R_qBCRr1vfJL6TlrgrO6lr05cUs"
+TOKEN = "8865069128:AAE3aXWfuezNsiqfM3htHwq3Q9l7LZ9yr7E"
 CHAT_ID = "-1003843720000"
 
 
