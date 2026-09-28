@@ -37,7 +37,7 @@ message = f"""
 📊 **Смотреть Allure-отчёт:** [Кликни сюда]({report_url})
 """
 
-url = f"https://telegram.org{TOKEN}/sendMessage"
+url = f"https://telegram.org/bot{TOKEN}/sendMessage"
 
 
 response = requests.post(url, json={
