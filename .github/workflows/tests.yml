@@ -18,6 +18,13 @@ permissions:
 jobs:
   run-tests:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
 
     steps:
     - name: Скачиваем код проекта из репозитория
@@ -47,6 +54,10 @@ jobs:
       with:
         allure_results: allure-results
         allure_report: allure-report
+
+    - name: 📄 Настройка GitHub Pages
+      uses: actions/configure-pages@v5
+      if: always()
 
 
     - name: 📦 Упаковка артефактов для хостинга
