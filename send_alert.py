@@ -7,7 +7,7 @@ TOKEN = os.getenv("TELEGRAM_TOKEN")
 CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
 run_number = os.getenv("GITHUB_RUN_NUMBER", "1")
-report_url = "https://github.com/Potter-Yashka22/PythonProject_Griffonstyle_QA523.git"
+report_url = "https://potter-yashka22.github.io/PythonProject_Griffonstyle_QA523/"
 
 test_status = os.getenv("GH_STAGE_STATUS", "failed")
 
