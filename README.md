@@ -1,3 +1,4 @@
+https://potter-yashka22.github.io/PythonProject_Griffonstyle_QA523/ -GitHub Pages
 Стек: Python, Pytest, Selenium, Allure Report, GitHub Actions (CI/CD), GitHub Pages, Telegram API, Git, Docker (joyzoursae/python-selenium).
 • С нуля спроектировал и реализовал модульный фреймворк автоматизации тестирования на базе Python, Pytest и Selenium WebDriver с использованием паттерна
 Page Object.
