@@ -6,7 +6,7 @@ on:
   push:
     branches: [ main ]
   schedule:
-    - cron: '10 4 * * *'
+    - cron: '10 7 * * *'
     - cron: '20 12 * * *'
     - cron: '35 18 * * *'
 
@@ -36,6 +36,8 @@ jobs:
         pip install -r requirements.txt
 
     - name: Запуск нашего теста каталога плитки
+      id: run_tests
+      continue-on-error: true
       run: |
         pytest tests/unit/test_catalog_sorting.py --alluredir=allure-results
 
@@ -54,13 +56,14 @@ jobs:
         path: allure-report
 
     - name: 🚀 Деплой отчёта на GitHub Pages
+
       uses: actions/deploy-pages@v4
       if: always()
 
     - name: 📲 Отправка пуш-нотификации в Telegram
       if: always()
       env:
-        GH_STAGE_STATUS: ${{ job.status }}
+        GH_STAGE_STATUS: ${{ steps.run_tests.outcome }}
         TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       run: |

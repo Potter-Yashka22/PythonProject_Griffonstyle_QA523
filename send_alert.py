@@ -12,11 +12,11 @@ report_url = "https://github.com/Potter-Yashka22/PythonProject_Griffonstyle_QA52
 test_status = os.getenv("GH_STAGE_STATUS", "failed")
 
 #  if-elif-else!
-if test_status == "passed":
+if test_status in ("success", "passed"):
     emoji_header = "🚀 **Дримтим, пайплайн на GitHub завершён!**"
     status_text = "🟢 **Статус тестов:** УСПЕШНО / PASSED"
 
-elif test_status == "failed":
+elif test_status in ("failure", "failed"):
     emoji_header = "🚨🚨🚨 **ALARM!!! АТТЕНШН!!! ПОЛУНДРА!!!** 🚨🚨🚨"
     status_text = "🔴 **СТАТУС:** КРАШ! БАГ НА ПРОДЕ! КТО-ТО СЛОМАЛ СОРТИРОВКУ! 🌋"
 
