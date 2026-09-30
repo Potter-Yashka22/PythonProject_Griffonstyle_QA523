@@ -48,16 +48,19 @@ jobs:
       run: |
         pytest tests/unit/test_catalog_sorting.py --alluredir=allure-results
 
-    - name: 📊 Генерация Allure-отчёта
-      uses: simple-elf/allure-report-action@master
+    - name: 📊 Установка Allure CLI
       if: always()
-      with:
-        allure_results: allure-results
-        allure_report: allure-report
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y default-jre
+        wget https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz
+        tar -zxvf allure-2.27.0.tgz
+        sudo mv allure-2.27.0 /opt/allure
+        sudo ln -s /opt/allure/bin/allure /usr/bin/allure
 
-    - name: 📄 Настройка GitHub Pages
-      uses: actions/configure-pages@v5
+    - name: 📊 Генерация Allure-отчёта
       if: always()
+      run: allure generate allure-results -o allure-report --clean
 
 
     - name: 📦 Упаковка артефактов для хостинга
@@ -67,7 +70,7 @@ jobs:
         path: allure-report
 
     - name: 🚀 Деплой отчёта на GitHub Pages
-
+      id: deployment
       uses: actions/deploy-pages@v4
       if: always()
 
