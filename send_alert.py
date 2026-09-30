@@ -4,7 +4,7 @@ import os
 import requests
 
 TOKEN = os.getenv("TELEGRAM_TOKEN")
-CHAT_IDS = [cid.strip() for cid in os.getenv("TELEGRAM_CHAT_IDS", "").split(",") if cid.strip()]
+CHAT_IDS = [cid.strip() for cid in os.getenv("TELEGRAM_CHAT_ID", "").split(",") if cid.strip()]
 # CHAT_IDS = os.getenv("TELEGRAM_CHAT_IDS", "").split(",") # Убрал  и подставил выше
 
 run_number = os.getenv("GITHUB_RUN_NUMBER", "1")
