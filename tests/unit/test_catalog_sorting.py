@@ -8,25 +8,25 @@ import time
 @allure.story("Проверка работы выпадающего списка сортировки в каталоге")
 def test_catalog_sorting_dropdown(start):
     driver=start
-    with allure.step("Переход на вкладку 'Плитка'"):
-        toClick(driver,By.LINK_TEXT,"Плитка")
-        print("Переход на вкладку 'Плитка' выполнен")
-        time.sleep(1)
+    with allure.step("Переход на вкладку 'Крупный формат'"):
+        toClick(driver,By.LINK_TEXT,"Крупный формат")
+        print("Переход на вкладку 'Крупный формат' выполнен")
+        time.sleep(3)
         actual_url=driver.current_url
-        assert "/podbor-plitki" in actual_url
+        assert "/krupnyi-format" in actual_url
         h1_title=toFind(driver,By.CSS_SELECTOR,".catalog-title h1")
         assert h1_title.is_displayed()==True
-    with allure.step("Переход к сортировке и выбору 'Новинки' в селекторе"):
+    with allure.step("Переход к сортировке и выбору 'Популярные' в селекторе"):
         sorting_selector=toFind(driver,By.ID,"Sorting")
         print("Прокрутка к элементу сортировки")
         driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", sorting_selector)
-        toSelect(driver,By.ID,"Sorting","DescByAddingDate")
+        toSelect(driver,By.ID,"Sorting","DescByPopular")
         time.sleep(2)
     with allure.step("Проверка что значение в селекторе успешно изменилось"):
         sorting_selector=toFind(driver,By.ID,"Sorting")
         actual_value=sorting_selector.get_attribute("value")
         print(f"Текущее значение в ID='Sorting': '{actual_value}'")
-        assert actual_value=="DescByAddingDate", \
+        assert actual_value=="DescByPopular", \
             f"Ошибка! Сортировка не переключилась на 'Новинки'. Получено: '{actual_value}'"
         assert getScreen(driver,106)
 
