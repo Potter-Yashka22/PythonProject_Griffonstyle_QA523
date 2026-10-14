@@ -27,10 +27,7 @@ def toFind(driver,by,item):
 def toClick(driver,by,item):
     toFind(driver,by,item)
     print(f'Проверка на клик {item}')
-    WebDriverWait(driver,10).until(
-        EC.visibility_of_element_located((By.CLASS_NAME, "preloader-wrapper"))
-    )
-    e1 = WebDriverWait(driver, 10).until(
+    e1 = WebDriverWait(driver, 25).until(
         EC.element_to_be_clickable((by, item))
     )
     e1.click()
