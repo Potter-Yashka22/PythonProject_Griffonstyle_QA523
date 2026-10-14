@@ -9,6 +9,7 @@ import time
 def test_catalog_sorting_dropdown(start):
     driver=start
     with allure.step("Переход на вкладку 'Крупный формат'"):
+        time.sleep(2)
         toClick(driver,By.LINK_TEXT,"Крупный формат")
         print("Переход на вкладку 'Крупный формат' выполнен")
         time.sleep(3)
