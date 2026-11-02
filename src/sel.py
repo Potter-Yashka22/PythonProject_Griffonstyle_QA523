@@ -13,7 +13,7 @@ import time
 def toFind(driver,by,item):
     print(f'ищу элемент {item}')
     # f1=driver.find_element()
-    e1=WebDriverWait(driver,5).until(
+    e1=WebDriverWait(driver,15).until(
         EC.presence_of_element_located((by,item))
     )
     print(f'нашёл элемент {item}')

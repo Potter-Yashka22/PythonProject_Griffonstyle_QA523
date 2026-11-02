@@ -14,7 +14,7 @@ def start():
     options.add_argument('--headless')
     options.add_argument("--window-size=1920,1080")
     driver=webdriver.Chrome(options=options)
-    driver.set_page_load_timeout(10)
+    driver.set_page_load_timeout(20)
     try:
         driver.get('https://griffonstyle.ru/')
     except TimeoutException:
