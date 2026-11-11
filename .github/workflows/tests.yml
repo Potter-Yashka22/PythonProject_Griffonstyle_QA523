@@ -48,19 +48,19 @@ jobs:
       run: |
         pytest tests/unit/test_catalog_sorting.py --alluredir=allure-results
 
-    - name: 📊 Установка Allure CLI
+    - name: 📊 Устанавливаем Java для Allure
+      uses: actions/setup-java@v4
+      if: always()
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
+    - name: 📊 Установка и генерация Allure-отчёта
       if: always()
       run: |
-        sudo apt-get update
-        sudo apt-get install -y default-jre
-        wget https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz
-        tar -zxvf allure-2.27.0.tgz
-        sudo mv allure-2.27.0 /opt/allure
-        sudo ln -s /opt/allure/bin/allure /usr/bin/allure
-
-    - name: 📊 Генерация Allure-отчёта
-      if: always()
-      run: allure generate allure-results -o allure-report --clean
+        wget -q https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz
+        tar -zxf allure-2.27.0.tgz
+        ./allure-2.27.0/bin/allure generate allure-results -o allure-report --clean
 
 
     - name: 📦 Упаковка артефактов для хостинга
