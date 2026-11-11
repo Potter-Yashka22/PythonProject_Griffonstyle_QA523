@@ -28,7 +28,7 @@ jobs:
 
     steps:
     - name: Скачиваем код проекта из репозитория
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
 
     - name: Устанавливаем Python
       uses: actions/setup-python@v5
@@ -36,7 +36,7 @@ jobs:
         python-version: '3.11'
 
     - name: Устанавливаем стабильный Google Chrome
-      uses: browser-actions/setup-chrome@v1
+      uses: browser-actions/setup-chrome@v2
 
     - name: Устанавливаем библиотеки
       run: |
@@ -46,6 +46,7 @@ jobs:
       id: run_tests
       continue-on-error: true
       run: |
+        mkdir -p allure-results
         pytest tests/unit/test_catalog_sorting.py --alluredir=allure-results
 
     - name: 📊 Устанавливаем Java для Allure
@@ -58,13 +59,13 @@ jobs:
     - name: 📊 Установка и генерация Allure-отчёта
       if: always()
       run: |
-        wget -q https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz
+        wget -q https://github.com
         tar -zxf allure-2.27.0.tgz
         ./allure-2.27.0/bin/allure generate allure-results -o allure-report --clean
 
 
     - name: 📦 Упаковка артефактов для хостинга
-      uses: actions/upload-pages-artifact@v3
+      uses: actions/upload-pages-artifact@v4
       if: always()
       with:
         path: allure-report
